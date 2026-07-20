@@ -39,20 +39,20 @@ export function Navbar() {
   }, [location]);
 
   const navBg = isHome 
-    ? (isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm border-b border-border' : 'bg-transparent')
-    : 'bg-background/95 backdrop-blur-md shadow-sm border-b border-border';
+    ? (isScrolled ? 'bg-[#0D0A1A]/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-primary/20' : 'bg-transparent')
+    : 'bg-[#0D0A1A]/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.5)] border-b border-primary/20';
 
   const textColor = isHome && !isScrolled && !mobileMenuOpen
     ? 'text-white'
     : 'text-foreground';
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg}`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
           
-          <Link href="/" className={`font-serif text-2xl md:text-3xl font-bold tracking-widest uppercase ${textColor}`}>
-            SUCR<span className="text-primary">É</span>
+          <Link href="/" className={`font-serif text-3xl md:text-4xl font-bold tracking-[0.2em] uppercase text-primary drop-shadow-[0_0_10px_rgba(245,166,35,0.5)]`}>
+            SUCR<span className="text-accent">É</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -62,7 +62,7 @@ export function Navbar() {
                 <li key={link.name}>
                   <Link 
                     href={link.path}
-                    className={`text-sm uppercase tracking-wider font-medium transition-colors hover:text-primary ${location === link.path ? 'text-primary' : textColor}`}
+                    className={`text-sm uppercase tracking-wider font-semibold transition-colors hover:text-accent hover:drop-shadow-[0_0_8px_rgba(232,67,106,0.6)] ${location === link.path ? 'text-accent' : textColor}`}
                   >
                     {link.name}
                   </Link>
@@ -72,10 +72,10 @@ export function Navbar() {
             
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className={`p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors ${textColor}`}
+              className={`p-2 rounded-full hover:bg-accent/20 transition-colors ${textColor}`}
               aria-label="Toggle theme"
             >
-              {isMounted && (theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />)}
+              {isMounted && (theme === 'dark' ? <Sun className="w-5 h-5 text-primary" /> : <Moon className="w-5 h-5 text-primary" />)}
             </button>
           </nav>
 
@@ -83,14 +83,14 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-4">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className={`p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors ${textColor}`}
+              className={`p-2 rounded-full hover:bg-accent/20 transition-colors ${textColor}`}
               aria-label="Toggle theme"
             >
-              {isMounted && (theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />)}
+              {isMounted && (theme === 'dark' ? <Sun className="w-5 h-5 text-primary" /> : <Moon className="w-5 h-5 text-primary" />)}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 ${textColor}`}
+              className={`p-2 ${textColor} hover:text-accent`}
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -106,14 +106,14 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-20 left-0 right-0 bg-background border-b border-border shadow-lg py-6 px-4 md:hidden"
+            className="absolute top-20 left-0 right-0 bg-[#0D0A1A] border-b border-primary/20 shadow-2xl py-6 px-4 md:hidden"
           >
             <ul className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.path}
-                    className={`block text-lg font-serif uppercase tracking-widest ${location === link.path ? 'text-primary' : 'text-foreground'}`}
+                    className={`block text-xl font-serif font-bold uppercase tracking-[0.2em] ${location === link.path ? 'text-accent drop-shadow-[0_0_8px_rgba(232,67,106,0.6)]' : 'text-foreground'} hover:text-primary transition-colors`}
                   >
                     {link.name}
                   </Link>

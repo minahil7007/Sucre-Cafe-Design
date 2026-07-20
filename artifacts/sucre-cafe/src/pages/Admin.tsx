@@ -108,13 +108,13 @@ export default function Admin() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="w-full bg-black border border-[#333] px-4 py-3 text-white focus:outline-none focus:border-[#C8A96A] transition-colors font-mono"
+                className="w-full bg-[#0D0A1A] border border-primary/30 px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-mono"
               />
               {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
             </div>
             <button 
               type="submit"
-              className="w-full bg-[#C8A96A] text-black font-medium uppercase tracking-widest py-3 hover:bg-[#b09255] transition-colors"
+              className="w-full bg-primary text-[#0D0A1A] font-bold uppercase tracking-[0.2em] py-4 hover:bg-accent hover:text-white transition-all shadow-[0_0_15px_rgba(245,166,35,0.4)]"
             >
               Access Dashboard
             </button>
@@ -140,7 +140,7 @@ export default function Admin() {
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-[#1a1a1a] border-r border-[#333] flex flex-col h-auto md:h-screen sticky top-0">
         <div className="p-6 border-b border-[#333]">
-          <h1 className="font-serif text-2xl text-white tracking-widest uppercase">SUCRÉ <span className="text-[#C8A96A] text-xs align-top">Admin</span></h1>
+          <h1 className="font-serif text-2xl md:text-3xl text-white tracking-[0.2em] uppercase font-bold drop-shadow-[0_0_8px_rgba(245,166,35,0.5)]">SUCR<span className="text-accent">É</span> <span className="text-primary text-xs align-top tracking-widest">Admin</span></h1>
         </div>
         
         <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
@@ -152,8 +152,8 @@ export default function Admin() {
                 onClick={() => { setActiveSection(link.id); cancelEdit(); }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-md transition-colors text-sm uppercase tracking-wider ${
                   activeSection === link.id 
-                    ? 'bg-[#C8A96A]/10 text-[#C8A96A] border border-[#C8A96A]/20' 
-                    : 'text-gray-400 hover:bg-[#222] hover:text-white'
+                    ? 'bg-primary/20 text-primary border border-primary/40 shadow-[0_0_10px_rgba(245,166,35,0.2)] font-bold' 
+                    : 'text-muted-foreground hover:bg-primary/10 hover:text-primary'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -183,7 +183,7 @@ export default function Admin() {
             {activeSection !== 'messages' && (
               <button 
                 onClick={addNew}
-                className="flex items-center gap-2 bg-[#C8A96A] text-black px-4 py-2 text-sm uppercase tracking-wider font-medium hover:bg-[#b09255] transition-colors rounded-sm"
+                className="flex items-center gap-2 bg-primary text-[#0D0A1A] px-4 py-2 text-sm uppercase tracking-[0.1em] font-bold hover:bg-accent hover:text-white transition-all rounded-sm shadow-[0_0_10px_rgba(245,166,35,0.3)]"
               >
                 <Plus className="w-4 h-4" />
                 Add New
@@ -198,7 +198,7 @@ export default function Admin() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="bg-[#1a1a1a] border border-[#C8A96A]/30 p-6 mb-8 rounded-sm overflow-hidden"
+                className="bg-[#1A0F2E] border border-primary/30 p-8 mb-8 rounded-sm overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.5)] relative"
               >
                 <h3 className="font-serif text-xl text-white mb-6">
                   {editFormData.id ? 'Edit Item' : 'New Item'}
@@ -217,14 +217,14 @@ export default function Admin() {
                           <textarea 
                             value={editFormData[key] || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, [key]: e.target.value })}
-                            className="w-full bg-black border border-[#333] px-3 py-2 text-white focus:border-[#C8A96A] outline-none min-h-[100px]"
+                            className="w-full bg-[#0D0A1A] border border-primary/20 px-3 py-2 text-white focus:border-primary focus:shadow-[0_0_8px_rgba(245,166,35,0.3)] outline-none min-h-[100px] transition-all"
                           />
                         ) : (
                           <input 
                             type={key === 'price' ? 'number' : key === 'date' || key === 'expiry' ? 'text' : 'text'}
                             value={editFormData[key] || ''}
                             onChange={(e) => setEditFormData({ ...editFormData, [key]: e.target.value })}
-                            className="w-full bg-black border border-[#333] px-3 py-2 text-white focus:border-[#C8A96A] outline-none"
+                            className="w-full bg-[#0D0A1A] border border-primary/20 px-3 py-2 text-white focus:border-primary focus:shadow-[0_0_8px_rgba(245,166,35,0.3)] outline-none transition-all"
                             placeholder={key === 'date' ? 'YYYY-MM-DDTHH:mm:ss' : ''}
                           />
                         )}
@@ -241,7 +241,7 @@ export default function Admin() {
                       if (activeSection === 'events') saveEdit(events, setEvents);
                       if (activeSection === 'testimonials') saveEdit(testimonials, setTestimonials);
                     }}
-                    className="flex items-center gap-2 bg-[#C8A96A] text-black px-6 py-2 text-sm uppercase tracking-wider font-medium hover:bg-[#b09255] transition-colors rounded-sm"
+                    className="flex items-center gap-2 bg-primary text-[#0D0A1A] px-6 py-2 text-sm uppercase tracking-[0.1em] font-bold hover:bg-accent hover:text-white transition-all rounded-sm shadow-[0_0_10px_rgba(245,166,35,0.3)]"
                   >
                     <Check className="w-4 h-4" /> Save
                   </button>
@@ -336,11 +336,11 @@ export default function Admin() {
                   <div className="p-8 text-center text-gray-500">No messages yet.</div>
                 ) : (
                   messages.map((msg: any) => (
-                    <div key={msg.id} className={`p-4 hover:bg-[#222] transition-colors ${!msg.read ? 'border-l-2 border-[#C8A96A]' : ''}`}>
+                    <div key={msg.id} className={`p-5 hover:bg-primary/5 transition-colors border-b border-primary/10 last:border-0 ${!msg.read ? 'border-l-4 border-l-primary bg-primary/5' : ''}`}>
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <h4 className="text-white font-medium">{msg.name}</h4>
-                          <p className="text-xs text-[#C8A96A]">{msg.email} {msg.phone ? `• ${msg.phone}` : ''}</p>
+                          <p className="text-xs text-primary font-bold tracking-widest">{msg.email} {msg.phone ? `• ${msg.phone}` : ''}</p>
                         </div>
                         <span className="text-xs text-gray-500">{new Date(msg.date).toLocaleDateString()}</span>
                       </div>
@@ -351,7 +351,7 @@ export default function Admin() {
                             onClick={() => {
                               setMessages(messages.map((m: any) => m.id === msg.id ? { ...m, read: true } : m));
                             }}
-                            className="text-xs uppercase tracking-widest text-[#C8A96A] hover:text-white transition-colors"
+                            className="text-xs uppercase tracking-widest text-primary hover:text-accent font-bold transition-colors"
                           >
                             Mark Read
                           </button>
@@ -378,7 +378,7 @@ export default function Admin() {
                       placeholder="Image URL"
                       value={editFormData.url || ''}
                       onChange={(e) => setEditFormData({ ...editFormData, url: e.target.value })}
-                      className="flex-1 bg-black border border-[#333] px-3 py-2 text-white focus:border-[#C8A96A] outline-none"
+                      className="flex-1 bg-[#0D0A1A] border border-primary/30 px-3 py-2 text-white focus:border-primary focus:shadow-[0_0_8px_rgba(245,166,35,0.3)] outline-none transition-all"
                     />
                     <button 
                       onClick={() => {
@@ -387,7 +387,7 @@ export default function Admin() {
                           cancelEdit();
                         }
                       }}
-                      className="bg-[#C8A96A] text-black px-6 py-2 text-sm uppercase tracking-wider font-medium hover:bg-[#b09255] transition-colors"
+                      className="bg-primary text-[#0D0A1A] px-6 py-2 text-sm uppercase tracking-[0.1em] font-bold hover:bg-accent hover:text-white transition-all shadow-[0_0_10px_rgba(245,166,35,0.3)]"
                     >
                       Add
                     </button>

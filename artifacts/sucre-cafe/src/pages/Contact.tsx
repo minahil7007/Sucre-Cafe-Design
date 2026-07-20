@@ -93,13 +93,14 @@ export default function Contact() {
     <PageLayout>
       <SEO title="Contact" description="Get in touch with SUCRÉ café for inquiries, reservations, and feedback." />
       
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-border">
-        <div className="container mx-auto px-4 text-center">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-primary/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent opacity-50" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
+            <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 font-bold tracking-wide text-gradient-amber-rose drop-shadow-[0_0_15px_rgba(245,166,35,0.3)]">
               Contact Us
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-light">
+            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-medium">
               We look forward to hearing from you.
             </motion.p>
           </motion.div>
@@ -116,21 +117,21 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-serif text-3xl mb-8">Send a Message</h2>
+              <h2 className="font-serif text-4xl mb-10 font-bold tracking-wide">Send a Message</h2>
               
               {isSuccess ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }} 
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-primary/10 border border-primary/20 p-8 text-center flex flex-col items-center justify-center min-h-[400px]"
+                  className="bg-[#1A0F2E] border border-primary/30 p-10 text-center flex flex-col items-center justify-center min-h-[450px] shadow-[0_0_30px_rgba(0,0,0,0.5)] rounded-sm"
                 >
-                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-primary-foreground mb-6">
-                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-[#1A0F2E] mb-8 shadow-[0_0_20px_rgba(245,166,35,0.5)]">
+                    <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="font-serif text-2xl mb-2 text-foreground">Thank You</h3>
-                  <p className="text-muted-foreground">Your message has been received. Our team will contact you shortly.</p>
+                  <h3 className="font-serif text-3xl mb-4 text-foreground font-bold tracking-wide">Thank You</h3>
+                  <p className="text-muted-foreground font-medium text-lg">Your message has been received. Our team will contact you shortly.</p>
                 </motion.div>
               ) : (
                 <Form {...form}>
@@ -215,10 +216,10 @@ export default function Contact() {
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="bg-primary text-primary-foreground font-serif uppercase tracking-widest px-8 py-4 w-full hover:bg-primary/90 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+                      className="bg-primary text-primary-foreground font-serif font-bold uppercase tracking-[0.2em] px-8 py-5 w-full hover:bg-accent hover:text-accent-foreground hover:shadow-[0_0_20px_rgba(232,67,106,0.5)] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
                     >
                       {isSubmitting ? (
-                        <span className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin"></span>
+                        <span className="w-6 h-6 border-4 border-primary-foreground border-t-transparent rounded-full animate-spin"></span>
                       ) : (
                         "Send Message"
                       )}
@@ -235,15 +236,15 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="font-serif text-3xl mb-8">Frequently Asked Questions</h2>
+              <h2 className="font-serif text-4xl mb-10 font-bold tracking-wide">Frequently Asked Questions</h2>
               
-              <Accordion type="single" collapsible className="w-full border-t border-border">
+              <Accordion type="single" collapsible className="w-full border-t border-primary/20">
                 {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`} className="border-b border-border py-2">
-                    <AccordionTrigger className="font-serif text-lg text-left hover:no-underline hover:text-primary transition-colors py-4">
+                  <AccordionItem key={index} value={`item-${index}`} className="border-b border-primary/20 py-3">
+                    <AccordionTrigger className="font-serif text-xl font-bold text-left hover:no-underline hover:text-primary transition-colors py-4 tracking-wide">
                       {faq.q}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground leading-relaxed text-sm md:text-base pb-6">
+                    <AccordionContent className="text-muted-foreground leading-relaxed text-base md:text-lg pb-8 font-medium">
                       {faq.a}
                     </AccordionContent>
                   </AccordionItem>

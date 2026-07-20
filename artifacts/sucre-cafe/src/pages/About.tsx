@@ -17,17 +17,18 @@ export default function About() {
       <SEO title="About Us" description="Discover the story behind SUCRÉ, where Parisian elegance meets Middle Eastern warmth." />
       
       {/* Page Header */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-border">
-        <div className="container mx-auto px-4 text-center">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-primary/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent opacity-50" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
+            <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 font-bold tracking-wide text-gradient-amber-rose drop-shadow-[0_0_15px_rgba(245,166,35,0.3)]">
               Our Story
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-light">
+            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-medium">
               Crafting unforgettable moments through the perfect harmony of coffee, dessert, and ambiance.
             </motion.p>
           </motion.div>
@@ -54,15 +55,17 @@ export default function About() {
               variants={staggerContainer}
             >
               <motion.div variants={fadeUp} className="mb-12">
-                <h2 className="font-serif text-3xl md:text-4xl mb-4 text-primary">Our Mission</h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <div className="w-12 h-1 bg-gradient-to-r from-primary to-accent mb-6 shadow-[0_0_8px_rgba(232,67,106,0.5)]" />
+                <h2 className="font-serif text-4xl md:text-5xl mb-6 text-foreground font-bold tracking-wide">Our Mission</h2>
+                <p className="text-muted-foreground leading-relaxed text-lg font-medium">
                   To elevate the everyday café visit into a luxurious ritual. We source the finest beans, employ master bakers, and curate an environment that invites you to linger, connect, and savor.
                 </p>
               </motion.div>
               
               <motion.div variants={fadeUp}>
-                <h2 className="font-serif text-3xl md:text-4xl mb-4 text-primary">Our Vision</h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <div className="w-12 h-1 bg-gradient-to-r from-primary to-accent mb-6 shadow-[0_0_8px_rgba(232,67,106,0.5)]" />
+                <h2 className="font-serif text-4xl md:text-5xl mb-6 text-foreground font-bold tracking-wide">Our Vision</h2>
+                <p className="text-muted-foreground leading-relaxed text-lg font-medium">
                   To be the premier destination for affluent coffee lovers, recognized globally for blending uncompromising quality with extraordinary aesthetic experiences.
                 </p>
               </motion.div>
@@ -72,16 +75,17 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-secondary text-secondary-foreground">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="py-24 bg-card text-card-foreground border-t border-primary/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="font-serif text-4xl md:text-5xl">The Journey</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mt-6" />
+            <h2 className="font-serif text-5xl md:text-6xl font-bold tracking-wide text-gradient-amber-rose drop-shadow-[0_0_10px_rgba(245,166,35,0.2)]">The Journey</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mt-8 shadow-[0_0_8px_rgba(232,67,106,0.5)]" />
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -92,18 +96,18 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="flex flex-col md:flex-row gap-6 md:gap-12 mb-12 last:mb-0"
+                className="flex flex-col md:flex-row gap-6 md:gap-12 mb-16 last:mb-0 relative"
               >
                 <div className="md:w-1/4 md:text-right">
-                  <span className="text-4xl font-serif text-primary">{item.year}</span>
+                  <span className="text-5xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-accent drop-shadow-[0_0_10px_rgba(245,166,35,0.3)]">{item.year}</span>
                 </div>
                 <div className="hidden md:flex flex-col items-center">
-                  <div className="w-4 h-4 rounded-full bg-primary" />
-                  {index !== timeline.length - 1 && <div className="w-px h-full bg-primary/30 mt-2" />}
+                  <div className="w-5 h-5 rounded-full bg-primary shadow-[0_0_15px_rgba(245,166,35,0.8)] border-2 border-[#1A0F2E] z-10" />
+                  {index !== timeline.length - 1 && <div className="w-0.5 h-[calc(100%+4rem)] bg-gradient-to-b from-primary via-accent to-primary/30 mt-2 absolute top-5 bottom-0" />}
                 </div>
                 <div className="md:w-3/4 pb-8 md:pb-0">
-                  <h3 className="text-2xl font-serif mb-3">{item.title}</h3>
-                  <p className="text-secondary-foreground/70 leading-relaxed text-lg font-light">{item.desc}</p>
+                  <h3 className="text-3xl font-serif mb-4 font-bold tracking-wide text-foreground">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg font-medium">{item.desc}</p>
                 </div>
               </motion.div>
             ))}

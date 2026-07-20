@@ -24,13 +24,14 @@ export default function Events() {
     <PageLayout>
       <SEO title="Events" description="Join us for exclusive tastings, gatherings, and special occasions at SUCRÉ." />
       
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-border">
-        <div className="container mx-auto px-4 text-center">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-primary/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent opacity-50" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
+            <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 font-bold tracking-wide text-gradient-amber-rose drop-shadow-[0_0_15px_rgba(245,166,35,0.3)]">
               Gatherings
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-light">
+            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-medium">
               Curated experiences for the coffee connoisseur and dessert aficionado.
             </motion.p>
           </motion.div>
@@ -39,47 +40,48 @@ export default function Events() {
 
       {/* Featured Next Event */}
       {nextEvent && (
-        <section className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-50" />
+        <section className="py-24 bg-[#0D0A1A] text-foreground relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-accent/5 to-transparent opacity-70" />
           
           <div className="container mx-auto px-4 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto bg-background/5 p-8 md:p-12 border border-primary/20 backdrop-blur-sm"
+              className="max-w-4xl mx-auto bg-card/60 p-8 md:p-12 border border-primary/30 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)] rounded-sm relative"
             >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
               <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
                 
                 <div className="flex-1 space-y-6">
-                  <span className="inline-block px-3 py-1 bg-primary/20 text-primary border border-primary/30 uppercase tracking-widest text-xs">
+                  <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent font-bold border border-accent/40 uppercase tracking-[0.2em] text-xs shadow-[0_0_10px_rgba(232,67,106,0.3)]">
                     Next Upcoming
                   </span>
-                  <h2 className="font-serif text-3xl md:text-5xl">{nextEvent.title}</h2>
-                  <p className="text-secondary-foreground/80 leading-relaxed text-lg font-light">
+                  <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-wide text-foreground">{nextEvent.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed text-lg font-medium">
                     {nextEvent.description}
                   </p>
                   
-                  <div className="space-y-3 pt-4 border-t border-primary/20">
-                    <div className="flex items-center gap-3 text-secondary-foreground/80">
-                      <Calendar className="w-5 h-5 text-primary" />
+                  <div className="space-y-4 pt-6 border-t border-primary/20">
+                    <div className="flex items-center gap-4 text-muted-foreground font-medium">
+                      <Calendar className="w-5 h-5 text-primary drop-shadow-[0_0_5px_rgba(245,166,35,0.5)]" />
                       <span>{format(new Date(nextEvent.date), 'EEEE, MMMM do, yyyy')}</span>
                     </div>
-                    <div className="flex items-center gap-3 text-secondary-foreground/80">
-                      <Clock className="w-5 h-5 text-primary" />
+                    <div className="flex items-center gap-4 text-muted-foreground font-medium">
+                      <Clock className="w-5 h-5 text-primary drop-shadow-[0_0_5px_rgba(245,166,35,0.5)]" />
                       <span>{format(new Date(nextEvent.date), 'h:mm a')}</span>
                     </div>
-                    <div className="flex items-center gap-3 text-secondary-foreground/80">
-                      <MapPin className="w-5 h-5 text-primary" />
+                    <div className="flex items-center gap-4 text-muted-foreground font-medium">
+                      <MapPin className="w-5 h-5 text-primary drop-shadow-[0_0_5px_rgba(245,166,35,0.5)]" />
                       <span>SUCRÉ Riyadh</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex-1 flex flex-col items-center justify-center space-y-8 bg-background/10 p-8 w-full">
-                  <h3 className="font-serif text-xl text-center">Starts In</h3>
+                <div className="flex-1 flex flex-col items-center justify-center space-y-8 bg-[#0D0A1A]/40 p-8 w-full border border-primary/10 shadow-inner rounded-sm">
+                  <h3 className="font-serif text-2xl text-center font-bold text-primary tracking-wider drop-shadow-[0_0_8px_rgba(245,166,35,0.4)]">Starts In</h3>
                   <EventCountdown targetDate={nextEvent.date} />
-                  <button className="bg-primary text-primary-foreground font-serif uppercase tracking-widest px-8 py-3 w-full hover:bg-primary/90 transition-colors">
+                  <button className="bg-primary text-primary-foreground font-serif font-bold uppercase tracking-[0.2em] px-8 py-4 w-full hover:bg-accent hover:text-accent-foreground hover:shadow-[0_0_15px_rgba(232,67,106,0.5)] transition-all">
                     Reserve Spot
                   </button>
                 </div>

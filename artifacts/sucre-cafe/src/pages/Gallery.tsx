@@ -58,13 +58,14 @@ export default function Gallery() {
     <PageLayout>
       <SEO title="Gallery" description="Explore the elegant atmosphere and culinary masterpieces at SUCRÉ." />
       
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-border">
-        <div className="container mx-auto px-4 text-center">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-card border-b border-primary/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-40" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.h1 variants={fadeUp} className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
+            <motion.h1 variants={fadeUp} className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 font-bold tracking-wide text-gradient-amber-rose drop-shadow-[0_0_15px_rgba(245,166,35,0.3)]">
               Gallery
             </motion.h1>
-            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-light">
+            <motion.p variants={fadeUp} className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-medium">
               A visual journey through our creations and sanctuary.
             </motion.p>
           </motion.div>
@@ -85,18 +86,18 @@ export default function Gallery() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: (colIndex * 0.1) + (idx * 0.1) }}
-                      className="relative group cursor-pointer overflow-hidden rounded-md"
+                      className="relative group cursor-pointer overflow-hidden rounded-sm border border-primary/10 hover:border-gradient-amber-rose transition-colors duration-500 shadow-sm hover:shadow-[0_0_20px_rgba(245,166,35,0.4)]"
                       onClick={() => openLightbox(actualIndex)}
                     >
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                        <span className="text-white font-serif uppercase tracking-widest text-sm border border-white px-4 py-2 transform scale-90 group-hover:scale-100 transition-transform">
+                      <div className="absolute inset-0 bg-[#1A0F2E]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center backdrop-blur-[2px]">
+                        <span className="text-primary font-serif font-bold uppercase tracking-[0.2em] text-sm border-2 border-primary px-6 py-3 transform scale-90 group-hover:scale-100 transition-transform shadow-[0_0_15px_rgba(245,166,35,0.4)] bg-[#0D0A1A]/80">
                           View
                         </span>
                       </div>
                       <img 
                         src={img} 
                         alt={`Gallery ${actualIndex}`} 
-                        className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full object-cover transition-transform duration-700 group-hover:scale-110 mix-blend-luminosity opacity-90 group-hover:mix-blend-normal group-hover:opacity-100"
                         loading="lazy"
                         onLoad={() => setIsLoading(false)}
                       />

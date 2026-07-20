@@ -21,7 +21,7 @@ export default function Home() {
             backgroundPosition: '50% 50%' 
           }}
         >
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#1A0F2E]/70 to-[#0D0A1A]/95 backdrop-blur-[2px]" />
         </div>
 
         {/* Content */}
@@ -34,21 +34,21 @@ export default function Home() {
           >
             <motion.h2 
               variants={fadeUp}
-              className="text-primary tracking-[0.3em] uppercase text-sm md:text-base font-semibold mb-6"
+              className="text-primary tracking-[0.3em] uppercase text-sm md:text-base font-bold mb-6 drop-shadow-[0_0_8px_rgba(245,166,35,0.6)]"
             >
               Experience SUCRÉ
             </motion.h2>
             
             <motion.h1 
               variants={fadeUp}
-              className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight"
+              className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight tracking-wider text-gradient-amber-rose drop-shadow-[0_0_15px_rgba(245,166,35,0.3)]"
             >
               Your Local Coffee & <br className="hidden md:block"/> Dessert Haven
             </motion.h1>
             
             <motion.div variants={fadeUp} className="mb-12">
-              <p className="text-gray-300 text-lg md:text-xl font-light italic">
-                <span className="typewriter inline-block overflow-hidden whitespace-nowrap border-r-2 border-primary w-0 animate-[typing_4s_steps(40,end)_forwards,blink_1s_step-end_infinite]">
+              <p className="text-foreground/90 text-lg md:text-xl font-light italic">
+                <span className="typewriter inline-block overflow-hidden whitespace-nowrap border-r-2 border-accent w-0 animate-[typing_4s_steps(40,end)_forwards,blink_1s_step-end_infinite] drop-shadow-[0_0_5px_rgba(232,67,106,0.5)]">
                   Crafted coffee, handmade desserts, unforgettable moments.
                 </span>
               </p>
@@ -60,13 +60,13 @@ export default function Home() {
             >
               <Link 
                 href="/menu" 
-                className="bg-primary text-primary-foreground font-serif uppercase tracking-widest px-8 py-4 w-full sm:w-auto hover:bg-primary/90 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20"
+                className="bg-primary text-primary-foreground font-serif font-bold uppercase tracking-[0.2em] px-8 py-4 w-full sm:w-auto hover:bg-accent hover:text-accent-foreground transition-all hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(245,166,35,0.4)]"
               >
                 View Menu
               </Link>
               <Link 
                 href="/locations" 
-                className="bg-transparent border border-white text-white font-serif uppercase tracking-widest px-8 py-4 w-full sm:w-auto hover:bg-white hover:text-black transition-all hover:-translate-y-1"
+                className="bg-transparent border border-primary text-primary font-serif font-bold uppercase tracking-[0.2em] px-8 py-4 w-full sm:w-auto hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all hover:-translate-y-1"
               >
                 Visit Us
               </Link>
@@ -81,10 +81,10 @@ export default function Home() {
           transition={{ delay: 2, duration: 1 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-white/50 text-xs uppercase tracking-widest font-serif">Scroll</span>
-          <div className="w-px h-16 bg-white/20 relative overflow-hidden">
+          <span className="text-primary/70 text-xs uppercase tracking-[0.2em] font-bold font-serif">Scroll</span>
+          <div className="w-px h-16 bg-primary/20 relative overflow-hidden">
             <motion.div 
-              className="absolute top-0 left-0 w-full h-1/2 bg-primary"
+              className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-primary to-accent shadow-[0_0_10px_rgba(245,166,35,0.8)]"
               animate={{ top: ['-50%', '100%'] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
             />
@@ -102,17 +102,17 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeUp}
             >
-              <h2 className="font-serif text-4xl md:text-5xl mb-6">Where Elegance Meets Warmth.</h2>
-              <div className="w-20 h-1 bg-primary mb-8" />
+              <h2 className="font-serif text-5xl md:text-6xl mb-6 text-foreground font-bold tracking-wide">Where Elegance Meets Warmth.</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mb-8 shadow-[0_0_8px_rgba(232,67,106,0.5)]" />
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                 Step into a world where every detail whispers refinement. SUCRÉ is more than a café; it's a private salon designed for those who treat coffee as a ritual. 
               </p>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 From our golden lighting to our carefully curated menu, we blend Parisian elegance with Middle Eastern warmth to create an unforgettable sensory experience.
               </p>
-              <Link href="/about" className="inline-flex items-center gap-2 text-primary font-serif uppercase tracking-widest hover:text-primary/80 transition-colors group">
+              <Link href="/about" className="inline-flex items-center gap-2 text-primary font-serif font-bold uppercase tracking-[0.2em] hover:text-accent hover:drop-shadow-[0_0_8px_rgba(232,67,106,0.6)] transition-all group">
                 Discover Our Story 
-                <span className="group-hover:translate-x-2 transition-transform">→</span>
+                <span className="group-hover:translate-x-2 transition-transform text-accent">→</span>
               </Link>
             </motion.div>
             
@@ -136,8 +136,8 @@ export default function Home() {
       </section>
 
       {/* BANNER SECTION */}
-      <section className="py-32 relative bg-secondary text-secondary-foreground text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent" />
+      <section className="py-32 relative bg-card text-card-foreground text-center overflow-hidden border-t border-primary/20">
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-accent/20 to-transparent mix-blend-screen" />
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -145,11 +145,11 @@ export default function Home() {
           variants={fadeUp}
           className="container mx-auto px-4 relative z-10"
         >
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl max-w-4xl mx-auto leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl max-w-5xl mx-auto leading-tight font-bold tracking-wide text-gradient-amber-rose drop-shadow-[0_0_10px_rgba(245,166,35,0.2)]">
             "A sanctuary for the senses, where time slows down and flavors come alive."
           </h2>
-          <div className="mt-12">
-            <Link href="/gallery" className="bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-serif uppercase tracking-widest px-8 py-4 transition-all">
+          <div className="mt-16">
+            <Link href="/gallery" className="bg-transparent border-2 border-primary text-primary hover:bg-accent hover:border-accent hover:text-accent-foreground hover:shadow-[0_0_20px_rgba(232,67,106,0.5)] font-serif font-bold uppercase tracking-[0.2em] px-10 py-5 transition-all inline-block">
               View Gallery
             </Link>
           </div>
