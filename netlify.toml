@@ -1,0 +1,15 @@
+[build]
+  # Run from the repo root; pnpm workspaces handle the rest.
+  command = "npm install -g pnpm@latest && pnpm install --frozen-lockfile && pnpm --filter @workspace/sucre-cafe run build"
+  publish = "artifacts/sucre-cafe/dist/public"
+
+[build.environment]
+  # Tell Vite to serve from the root (not a Replit sub-path).
+  BASE_PATH = "/"
+  NODE_VERSION = "20"
+
+# SPA fallback — send all routes to index.html so React Router handles them.
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

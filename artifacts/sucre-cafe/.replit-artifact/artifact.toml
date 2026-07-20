@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "SUCRÉ — Luxury Café"
+version = "1.0.0"
+id = "artifacts/sucre-cafe"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22480
+
+[services.development]
+run = "pnpm --filter @workspace/sucre-cafe run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sucre-cafe", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/sucre-cafe/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22480"
+BASE_PATH = "/"
